@@ -2,6 +2,9 @@
   "manifest_version": 3,
   "name": "TL;DR Next",
   "version": "1.0.0",
+  "icons": {
+    "16": "public/tldri4.png"
+  },
   "action": {
     "default_popup": "popup.html"
   },
