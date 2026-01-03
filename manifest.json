@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "TL;DR Next",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  }
+}
