@@ -1,9 +1,10 @@
 import './App.css'
+import ScanButton from './components/scan-button'
 
 function App() {
   return (
     <>
-      HELLO WORLD
+      <ScanButton />
     </>
   )
 }
