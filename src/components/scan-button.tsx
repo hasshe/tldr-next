@@ -26,6 +26,7 @@ export default function ScanButton() {
         return;
       }
       console.log("Current URL:", currentUrl);
+      // Call backend with the URL here and load until a sumary is retuerned. When returned, setLoading(false) and display Y N option.
     } catch (error) {
       console.error("Error getting current URL:", error);
       setLoading(false);
@@ -33,7 +34,7 @@ export default function ScanButton() {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: 'absolute', bottom: 0, right: 0, paddingBottom: '10px', paddingRight: '10px' }}>
       {isLoading && <CircularProgress />}
       {!isLoading && (
         <Button 
