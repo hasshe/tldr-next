@@ -15,6 +15,23 @@ export default function ScanButton() {
     }
   }, [isLoading]);
 
+  const handleScan = async () => {
+    setLoading(true);
+    try {
+      const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+      const currentUrl = tabs[0]?.url;
+      if (!currentUrl) {
+        console.error("No active tab found");
+        setLoading(false);
+        return;
+      }
+      console.log("Current URL:", currentUrl);
+    } catch (error) {
+      console.error("Error getting current URL:", error);
+      setLoading(false);
+    }
+  };
+
   return (
     <div style={{ position: "relative" }}>
       {isLoading && <CircularProgress />}
@@ -22,10 +39,7 @@ export default function ScanButton() {
         <Button 
           variant="contained" 
           style={{ backgroundColor: "green" }}
-          onClick={() => {
-            setLoading(true);
-            console.log("Scan button clicked!");
-          }}
+          onClick={handleScan}
         >
           <ScreenSearchDesktopIcon style={{ paddingRight: "10px" }} /> Summarize
         </Button>

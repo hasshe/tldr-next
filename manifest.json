@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "TL;DR Next",
   "version": "1.0.0",
+  "permissions": ["tabs"],
   "icons": {
     "16": "public/tldri4.png"
   },
