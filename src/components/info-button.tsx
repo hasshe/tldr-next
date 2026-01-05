@@ -1,11 +1,13 @@
 import InfoIcon from '@mui/icons-material/Info';
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 
 export default function InfoButton() {
   return (
-    <IconButton color="info" aria-label="info" style={{ position: 'absolute', bottom: 0, left: 0, paddingBottom: '15px' }}
+    <Tooltip title="Simple Scan Page for Summary and find similar sources." placement="bottom" arrow>
+    <IconButton color="info" aria-label="info" style={{ position: 'absolute', top: 0, right: 10, paddingTop: '20px', backgroundColor: 'transparent' }}
     sx={{'&:focus': { outline: 'none' }}}>
         <InfoIcon />
     </IconButton>
+    </Tooltip>
   );
 }
