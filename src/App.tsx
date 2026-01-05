@@ -47,7 +47,7 @@ function App() {
         <Divider sx={{ my: 3, borderColor: "#7CFFB2" }} />
 
         <TerminalButton
-          label="Previous Scans"
+          label="Previous Scans_"
           icon={<FolderIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
           onClick={() => console.log("Hello World 2")} // TODO: List previous scans in a new window or popup
         />
