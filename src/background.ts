@@ -10,4 +10,4 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   }
 });
 
-export {}
+export {};

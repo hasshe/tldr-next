@@ -1,7 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import InfoButton from "./components/InfoButton";
-import SearchIcon from '@mui/icons-material/Search';
-import FolderIcon from '@mui/icons-material/Folder';
+import SearchIcon from "@mui/icons-material/Search";
+import FolderIcon from "@mui/icons-material/Folder";
 import TerminalButton from "./components/TerminalButton";
 
 function App() {
@@ -25,7 +25,13 @@ function App() {
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography fontWeight="bold" fontFamily="JetBrains Mono" letterSpacing="0.1em" color="#7CFFB2" variant="h6">
+          <Typography
+            fontWeight="bold"
+            fontFamily="JetBrains Mono"
+            letterSpacing="0.1em"
+            color="#7CFFB2"
+            variant="h6"
+          >
             TL;DR Next
           </Typography>
           <InfoButton />
@@ -33,18 +39,18 @@ function App() {
 
         <Divider sx={{ my: 2, borderColor: "#7CFFB2" }} />
 
-<TerminalButton
-  label="Scan_"
-  icon={<SearchIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-onClick={() => console.log("Hello World")}
-/>
+        <TerminalButton
+          label="Scan_"
+          icon={<SearchIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
+          onClick={() => console.log("Hello World")}
+        />
         <Divider sx={{ my: 3, borderColor: "#7CFFB2" }} />
 
-<TerminalButton
-  label="Previous Scans"
-  icon={<FolderIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-  onClick={() => console.log("Hello World 2")}
-/>
+        <TerminalButton
+          label="Previous Scans"
+          icon={<FolderIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
+          onClick={() => console.log("Hello World 2")}
+        />
       </Box>
     </Box>
   );

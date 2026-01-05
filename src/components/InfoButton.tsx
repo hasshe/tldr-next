@@ -1,13 +1,26 @@
-import InfoIcon from '@mui/icons-material/Info';
+import InfoIcon from "@mui/icons-material/Info";
 import { IconButton, Tooltip } from "@mui/material";
 
 export default function InfoButton() {
   return (
-    <Tooltip title="Simple Scan Page for Summary and find similar sources." placement="bottom" arrow>
-    <IconButton aria-label="info" style={{ position: 'absolute', top: 0, right: 10, paddingTop: '20px', color: "#7CFFB2" }}
-    sx={{'&:focus': { outline: 'none' }}}>
+    <Tooltip
+      title="Simple Scan Page for Summary and find similar sources."
+      placement="bottom"
+      arrow
+    >
+      <IconButton
+        aria-label="info"
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 10,
+          paddingTop: "20px",
+          color: "#7CFFB2",
+        }}
+        sx={{ "&:focus": { outline: "none" } }}
+      >
         <InfoIcon />
-    </IconButton>
+      </IconButton>
     </Tooltip>
   );
 }

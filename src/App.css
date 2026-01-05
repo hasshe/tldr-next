@@ -3,7 +3,7 @@
   height: 100vh;
   padding: 4rem;
   text-align: center;
-  border: 2px solid #7CFFB2;
+  border: 2px solid #7cffb2;
   border-radius: 0px;
   box-sizing: border-box;
 }
@@ -11,6 +11,6 @@
 body {
   margin: 0;
   background-color: #000;
-  color: #7CFFB2;
+  color: #7cffb2;
   font-family: "JetBrains Mono", monospace;
 }
