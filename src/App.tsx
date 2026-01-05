@@ -42,14 +42,14 @@ function App() {
         <TerminalButton
           label="Scan_"
           icon={<SearchIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-          onClick={() => console.log("Hello World")}
+          onClick={() => console.log("Hello World")} // TODO: get active tab URL and start a spinner. Send URL to BE and wair for response.
         />
         <Divider sx={{ my: 3, borderColor: "#7CFFB2" }} />
 
         <TerminalButton
           label="Previous Scans"
           icon={<FolderIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-          onClick={() => console.log("Hello World 2")}
+          onClick={() => console.log("Hello World 2")} // TODO: List previous scans in a new window or popup
         />
       </Box>
     </Box>
