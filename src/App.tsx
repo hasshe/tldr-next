@@ -42,7 +42,7 @@ function App() {
         <TerminalButton
           label="/Scan >_"
           icon={<SearchIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-          onClick={() => console.log("Hello World")} // TODO: get active tab URL and start a spinner. Send URL to BE and wair for response. TEST
+          onClick={() => console.log("Hello World")} // TODO: get active tab URL and start a spinner. Send URL to BE and wair for response.
         />
         <Divider sx={{ my: 3, borderColor: "#7CFFB2" }} />
 
