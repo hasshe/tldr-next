@@ -3,8 +3,46 @@ import InfoButton from "./components/InfoButton";
 import SearchIcon from "@mui/icons-material/Search";
 import FolderIcon from "@mui/icons-material/Folder";
 import TerminalButton from "./components/TerminalButton";
+import { useState } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [loadingPrev, setLoadingPrev] = useState(false);
+
+  const getActiveTabUrl = (): Promise<string | undefined> => {
+    return new Promise((resolve) => {
+      try {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          resolve(tabs?.[0]?.url);
+        });
+      } catch (err) {
+        console.error("chrome.tabs.query failed", err);
+        resolve(undefined);
+      }
+    });
+  };
+
+  const handleScan = async () => {
+    setLoading(true);
+    try {
+      const url = await getActiveTabUrl();
+      console.log("Active tab URL:", url);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePreviousScans = async () => {
+    setLoadingPrev(true);
+    try {
+      console.log("Listing previous scans...");
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // TODO: show previous scans in a modal
+    } finally {
+      setLoadingPrev(false);
+    }
+  };
   return (
     <Box
       sx={{
@@ -42,14 +80,16 @@ function App() {
         <TerminalButton
           label="/Scan >_"
           icon={<SearchIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-          onClick={() => console.log("Hello World")} // TODO: get active tab URL and start a spinner. Send URL to BE and wair for response.
+          onClick={handleScan}
+          loading={loading}
         />
         <Divider sx={{ my: 3, borderColor: "#7CFFB2" }} />
 
         <TerminalButton
           label="/Previous Scans >_"
           icon={<FolderIcon sx={{ mr: 1, color: "#7CFFB2" }} />}
-          onClick={() => console.log("Hello World 2")} // TODO: List previous scans in a new window or popup
+          onClick={handlePreviousScans}
+          loading={loadingPrev}
         />
       </Box>
     </Box>
