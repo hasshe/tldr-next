@@ -26,8 +26,34 @@ function App() {
     setLoading(true);
     try {
       const url = await getActiveTabUrl();
-      console.log("Active tab URL:", url);
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      if (!url) {
+        console.warn("No active tab URL available to process");
+        return;
+      }
+
+      const res = await fetch("http://localhost:3000/process-url", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        console.error("Processing failed:", res.status, text);
+      } else {
+        const contentType = res.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          const data = await res.json();
+          console.log("Processing result:", data);
+        } else {
+          const text = await res.text().catch(() => "");
+          console.log("Processing result (text):", text);
+        }
+      }
+    } catch (err) {
+      console.error("handleScan failed", err);
     } finally {
       setLoading(false);
     }
